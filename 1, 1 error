@@ -1,0 +1,103 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+
+
+using namespace std;
+
+
+
+int main()
+{
+
+	long long a, b, c, t;
+	cin >> a >> b >> c >> t;
+	for (long long i = 0; i < t; i++)
+	{
+		if (a == b || a == c || b == c)
+		{
+			if (a == b && c > a)
+			{
+				a += 2 * (c - a);
+			}
+			if (a == c && b > a)
+			{
+				a += 2 * (b - a);
+			}
+			if (b == c && a > b)
+			{
+				b += 2 * (a - b);
+			}
+
+
+
+			if (a == b && c < a)
+			{
+				c += 2 * (a - c);
+			}
+			if (a == c && b < a)
+			{
+				b += 2 * (a - b);
+			}
+			if (b == c && a < b)
+			{
+				a += 2 * (b - a);
+			}
+			continue;
+		}
+
+		if (a < b && a < c)
+		{
+			if (b > c)
+			{
+				a += 2 * (c - a);
+			}
+			if (c > b)
+			{
+				a += 2 * (b - a);
+			}
+			if (b == c)
+			{
+				a += 2 * (c - a);
+			}
+			continue;
+		}
+
+		if (b < a && b < c)
+		{
+			if (a > c)
+			{
+				b += 2 * (c - b);
+			}
+			if (c > a)
+			{
+				b += 2 * (a - b);
+			}
+			if (a == c)
+			{
+				b += 2 * (c - b);
+			}
+			continue;
+		}
+
+		if (c < b && c < a)
+		{
+			if (b > a)
+			{
+				c += 2 * (a - c);
+			}
+			if (a > b)
+			{
+				c += 2 * (b - c);
+			}
+			if (b == a)
+			{
+				c += 2 * (a - c);
+			}
+			continue;
+		}
+
+	}
+	cout << a << " " << b << " " << c;
+}
